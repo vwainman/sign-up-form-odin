@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
+body {
+    display: flex;
+    background-color: black;
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 65vw;
+    max-height: 100vh;
+}
+
+#left-sidebar,
+#right-sidebar {
+    background-color: white;
+    height: 100vh;
+}
+
+#right-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+#left-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    background-image: url("./casey-horner-RmoWqDCqN2E-unsplash.jpg");
+    background-size: 100% 100%;
+    color: white;
+    min-height: 100%;
+    text-align: center;
+}
+
+#logo-strip-container {
+    flex: 1 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo-strip {
+    position: relative;
+    top: 22vh;
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: "Audiowide", Arial, Times, sans-serif;
+}
+
+#img-credit {
+    flex-shrink: 0;
+}
+
+#star-icon {
+    width: 33%;
+}
+
+#right-sidebar {
+    width: 66%;
+}
+
+header,
+main,
+footer {
+    border: 2px solid black
+}
