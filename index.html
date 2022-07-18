@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -25,37 +27,73 @@
     </div>
     <div id="right-sidebar">
         <header>
-            <p>This is not a real online service! You know you need something like this in yoru life to help you
+            <h3>This is not a real online service! You know you need something like this in your life to help you
                 realize
-                your deepest dreams. Sign up <i>now</i> to get started.<br>You <i>know</i> you want to.</p>
+                your deepest dreams. Sign up <i>now</i> to get started.</h3>
+            <h3>You <i>know</i> you want to.</h3>
         </header>
         <main>
-            <p>Let's do this!</p>
-            <form>
-                <label for="fname">First name:</label><br>
-                <input type="text" id="fname" name="fname"><br>
-                <label for="lname">Last name:</label><br>
-                <input type="text" id="lname" name="lname">
-                <label for="email">First name:</label><br>
-                <input type="text" id="fname" name="fname"><br>
-                <label for="phonenum">Last name:</label><br>
-                <input type="text" id="lname" name="lname"><br>
-                <label for="password">First name:</label><br>
-                <input type="text" id="fname" name="fname"><br>
-                <label for="confirm-password">Last name:</label><br>
-                <input type="text" id="lname" name="lname">
+            <h3>Let's do this!</h3>
+            <form action="#">
+                <div class="input"><label for="fname">FIRST NAME</label>
+                    <input type="text" id="fname" name="fname">
+                </div>
+                <div class="input"><label for="lname">LAST NAME</label>
+                    <input type="text" id="lname" name="lname">
+                </div>
+                <div class="input"><label for="email">*EMAIL</label>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                </div>
+                <div class="input"><label for="phone">PHONE NUMBER</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="input"><label for="password">*PASSWORD</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="input"><label for="confirm-password">*CONFIRM PASSWORD</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
 
             </form>
+            <div class="alert alert-info" style="display: none;"></div>
         </main>
         <footer>
-            <button>Create Account</button>
-            <p>Already have an account? <a href="">Log in</a></p>
+            <button class="button-6" role="button">Create Account</button>
+            <h3>Already have an account? <a id="login-link" href="">Log in</a></h3>
         </footer>
         </main>
     </div>
-    <script src="scripts.js"></script>
+    <script>
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            initialCountry: "ca",
+            preferredCountries: ["ca", "us", "uk"],
+            geoIpLookup: getIp,
+            utilsScript:
+                "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+        const info = document.querySelector(".alert-info");
+
+        function process(event) {
+            event.preventDefault();
+
+            const phoneNumber = phoneInput.getNumber();
+
+            info.style.display = "";
+            info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+        }
+        function getIp(callback) {
+            fetch('https://ipinfo.io/json?token=<your token>', { headers: { 'Accept': 'application/json' } })
+                .then((resp) => resp.json())
+                .catch(() => {
+                    return {
+                        country: 'us',
+                    };
+                })
+                .then((resp) => callback(resp.country));
+        }
+
+    </script>
 </body>
-<!-- Photo by Casey Horner on Unsplash
-    https://unsplash.com/photos/RmoWqDCqN2E?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
 
 </html>

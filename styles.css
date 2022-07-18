@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide');
 
+:root {
+    --card-padding: 25px;
+    --content-padding: 20px;
+}
+
 body {
     display: flex;
     background-color: black;
@@ -55,6 +60,14 @@ body {
 
 h1 {
     font-family: "Audiowide", Arial, Times, sans-serif;
+    font-size: 16px;
+    font-size: 2.5vw;
+}
+
+h3 {
+    margin-top: 0;
+    padding-bottom: var(--content-padding);
+    margin-bottom: 0;
 }
 
 #img-credit {
@@ -69,8 +82,133 @@ h1 {
     width: 66%;
 }
 
+form {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+form label {
+    letter-spacing: 0.1em;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 header,
-main,
-footer {
-    border: 2px solid black
+footer,
+main {
+    padding: var(--card-padding);
+}
+
+#right-sidebar {
+    background-color: rgba(249, 250, 251, 0.955);
+}
+
+.button-6 {
+    align-items: center;
+    background-color: #000000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+    margin-bottom: var(--content-padding);
+}
+
+.button-6:hover,
+.button-6:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgb(255, 255, 255);
+}
+
+.button-6:hover {
+    transform: translateY(-1px);
+}
+
+.button-6:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgb(0, 0, 0);
+    transform: translateY(1px);
+}
+
+#img-credit>a:link {
+    color: white;
+}
+
+#img-credit>a:visited {
+    color: rgb(159, 159, 159);
+}
+
+#login-link {
+    color: rgb(0, 69, 103);
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.input {
+    font-size: 12.5px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin: 1px 0;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #111;
+    transition: .3s background-color;
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+input#phone {
+    box-sizing: border-box;
+    padding: 5px;
+    padding-left: 50px;
+    margin-right: -45px;
+}
+
+form {
+    gap: 15px;
+}
+
+input:hover {
+    background-color: #fafafa;
+}
+
+form:valid {
+    border: 1px solid #111;
+}
+
+input:required:invalid {
+    border: 1px solid red;
 }
