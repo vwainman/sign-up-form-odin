@@ -36,7 +36,7 @@ body {
 #left-sidebar {
     display: flex;
     flex-direction: column;
-    width: 33%;
+    width: 33.5%;
     background-image: url("./casey-horner-RmoWqDCqN2E-unsplash.jpg");
     background-size: 100% 100%;
     color: white;
@@ -77,11 +77,11 @@ h3 {
 }
 
 #star-icon {
-    width: 33%;
+    width: 33.5%;
 }
 
 #right-sidebar {
-    width: 66%;
+    width: 66.5%;
 }
 
 form {
@@ -178,6 +178,7 @@ main {
 
 .input {
     font-size: 12.5px;
+    position: relative;
 }
 
 input {
@@ -208,12 +209,30 @@ input:hover {
     background-color: #fafafa;
 }
 
-form:valid {
-    border: 1px solid #111;
+input:not(:placeholder-shown):invalid {
+    color: red;
+    outline-color: red;
 }
 
-input:required:invalid {
-    border: 1px solid red;
+button#toggle-password,
+button#toggle-confirm-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+}
+
+@media screen and (max-width: 877px) {
+    body {
+        margin-right: 0;
+        margin-left: 0;
+        width: 100vw;
+    }
 }
 
 @media only screen and (max-width: 600px) {

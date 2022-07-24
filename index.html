@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-    <title>Document</title>
+    <title>Odin - Sign-up Form Practice</title>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
         </header>
         <main>
             <h3>Let's do this!</h3>
-            <form action="#">
+            <form action="#" name="sign-up">
                 <div class="input"><label for="fname">FIRST NAME</label>
                     <input type="text" id="fname" name="fname">
                 </div>
@@ -42,58 +42,35 @@
                     <input type="text" id="lname" name="lname">
                 </div>
                 <div class="input"><label for="email">*EMAIL</label>
-                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                    <input type="email" id="email" name="email" placeholder="test@example.com" autocomplete="username"
+                        required>
                 </div>
                 <div class="input"><label for="phone">PHONE NUMBER</label>
                     <input type="tel" id="phone" name="phone">
                 </div>
-                <div class="input"><label for="password">*PASSWORD</label>
-                    <input type="password" id="password" name="password" required>
+                <div class="input">
+                    <label for="new-password">*PASSWORD</label>
+                    <button id="toggle-password" type="button" aria-label="Show password as plain text.">SHOW</button>
+                    <input type="password" id="new-password" name="new-password" autocomplete="new-password" required>
                 </div>
-                <div class="input"><label for="confirm-password">*CONFIRM PASSWORD</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
+                <div class="input">
+                    <label for="confirm-password">*CONFIRM PASSWORD</label>
+                    <button id="toggle-confirm-password" type="button"
+                        aria-label="Show password as plain text.">SHOW</button>
+                    <input type="password" id="confirm-password" name="confirm-password" autocomplete="new-password"
+                        required>
                 </div>
 
-            </form>
-            <div class="alert alert-info" style="display: none;"></div>
+                <div class="alert alert-info" style="display: none;"></div>
         </main>
         <footer>
-            <button class="button-6" role="button">Create Account</button>
+            <button class="button-6" role="button" type="submit">Create Account</button>
+            </form>
             <h3>Already have an account? <a id="login-link" href="">Log in</a></h3>
         </footer>
         </main>
     </div>
-    <script>
-        const phoneInputField = document.querySelector("#phone");
-        const phoneInput = window.intlTelInput(phoneInputField, {
-            initialCountry: "ca",
-            preferredCountries: ["ca", "us", "uk"],
-            geoIpLookup: getIp,
-            utilsScript:
-                "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        });
-        const info = document.querySelector(".alert-info");
-
-        function process(event) {
-            event.preventDefault();
-
-            const phoneNumber = phoneInput.getNumber();
-
-            info.style.display = "";
-            info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
-        }
-        function getIp(callback) {
-            fetch('https://ipinfo.io/json?token=<your token>', { headers: { 'Accept': 'application/json' } })
-                .then((resp) => resp.json())
-                .catch(() => {
-                    return {
-                        country: 'us',
-                    };
-                })
-                .then((resp) => callback(resp.country));
-        }
-
-    </script>
 </body>
+<script src="form-management.js"></script>
 
 </html>
