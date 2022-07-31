@@ -276,4 +276,8 @@ button#toggle-confirm-password {
         font-size: 10vw;
     }
 
+    footer a {
+        display: inline-block;
+    }
+
 }
